@@ -24,11 +24,11 @@ public class ClockDisplay
      */
     public ClockDisplay()
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
         updateDisplay();
     }
-
+    
     /**
      * Constructor for ClockDisplay objects. This constructor
      * creates a new clock set at the time specified by the 
@@ -36,7 +36,7 @@ public class ClockDisplay
      */
     public ClockDisplay(int hour, int minute)
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
@@ -50,6 +50,10 @@ public class ClockDisplay
         minutes.increment();
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
+        }
+        
+        if(hours.getValue()==0){
+            hours.setValue(12);
         }
         updateDisplay();
     }
@@ -81,4 +85,27 @@ public class ClockDisplay
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
     }
+    /*
+     * Extra Question
+     * 
+     * 29. 60 times
+     * 
+     * 30. Rectangle windows = new rectangle(5.7);
+     * 
+     * 31. 2nd contructor set to created an object.
+     * 
+     * 32.the 2nd contructor is used for to created said object to set an 
+     * parameters while the other are used to change the display of the clock.
+     * 
+     * 
+     * 33.p1.print("fire1.txt",true);
+     *    p1.print("file2.txt",false);
+     * 
+     *int status = 0;
+     * status =p1.getStatus(3);
+     * status =p1.getStatus(30);
+     * 
+     * 
+     */
+    
 }
